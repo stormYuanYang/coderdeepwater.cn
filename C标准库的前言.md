@@ -5,7 +5,7 @@
 + C标准库
 + + stdlib.h
   + + abs
-    + malloc
+  + + malloc
   + math.h
   + + pow
 
