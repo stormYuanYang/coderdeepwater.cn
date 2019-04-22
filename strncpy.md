@@ -10,7 +10,7 @@ char * strncpy(char * dest, const char * src, size_t num);
 
 + 当`num < strlen(src) + 1`（即num小于整个字符串长度(包括'\0')）时：strncpy只会拷贝num个字符，未拷贝终止符'\0'；
 + 当`num == strlen(src) + 1`时：此时strncpy和strcpy等价，恰好将字符串拷贝到dest。
-+ 当`num > strlen(src) + 1`时：此时strncpy会完整地将字符串拷贝到dest，并且填充`num - strlen(src) - 1`个'\0'到dest字符之后。
++ 当`num > strlen(src) + 1`时：此时strncpy会完整地将字符串拷贝到dest，并且填充`num - strlen(src) - 1`个'\0'到dest字符串之后。
 
 ---
 
