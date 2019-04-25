@@ -109,3 +109,16 @@ s += strspn(s, SPACECHARS);
 这里根据标志neg的值，得到最终的整数值\*pn。注意，就算在`do{}while()`中没有溢出，这里同样可能会溢出，因为n是unsigned类型(**unsigned LUA_INTEGER**)，\*pn却是signed类型(**LUA_INTEGER**)。
 
 执行完后，返回s。
+
+分析一下b_str2int的时间复杂度。strspn的时间复杂度是平方级的：
+$$
+O(n^{2})
+$$
+但是，**SPACECHARS**的长度是固定的，而且也不是很大，一共就6个字符。可以认为在b_str2int中，调用strspn的时间复杂度是线性的：
+$$
+O(n)
+$$
+调用`do{}while()`循环花费线性时间。其他的操作都只花费常量时间。综上，b_str2int的时间复杂是线性的:
+$$
+O(n)
+$$
