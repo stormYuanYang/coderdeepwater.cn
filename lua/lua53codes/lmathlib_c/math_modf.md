@@ -39,7 +39,7 @@ static int math_modf (lua_State *L) {
 double modf (double x, double* intpart);
 ```
 
-当LUA_NUMBER不是double类型时，double* 和float*并不兼容，这样可能会导致一些问题。
+当LUA_NUMBER不是double类型时(LUA_NUMBER可以宏定义为float类型)，double* 和float*并不兼容，这样可能会导致一些问题。
 
 看代码：
 
@@ -63,3 +63,7 @@ else {
 }
 ```
 
+math_modf取整数部分，采用向0舍入的策略；然后用浮点数减去整数部分得到小数部分。例如：
+
++ math.modf(-2.9) --> 整数部分：-2 小数部分：-0.9
++ math.modf(2.9) --> 整数部分：2 小数部分：0.9
