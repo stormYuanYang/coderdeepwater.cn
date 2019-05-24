@@ -8,7 +8,7 @@ table.remove (list [, pos])
 
 **table.remove**的目的是移除list中位于pos处的元素，并返回这个元素：
 
-+ 当pos在$[1,\#list]$范围内时，**table.remove**将list[pos+1]，list[pos+2]，...，list[#list]向前移动，并移除list[#list]；
++ 当pos在[1,#list]范围内时，**table.remove**将list[pos+1]，list[pos+2]，...，list[#list]向前移动，并移除list[#list]；
 + 当#list等于0时，pos可以是0，此时**table.remove**并不移除元素，直接返回nil；
 + 当pos等于#list+1时，**table.remove**并不移除元素，直接返回nil。
 + 除此之外，pos就是非法的。
@@ -61,7 +61,7 @@ static int tremove (lua_State *L) {
 
 + #list等于0时，如果移除t[0]，此时**tremove**的时间复杂度是$O(1)$；
 + pos等于#list或者pos等于#list+1时，**tremove**的时间复杂度是$O(1)$；
-+ pos在$[1,\#list)$范围内时，**tremove**会移动表中的元素，其时间复杂度是$O(n)$。
++ pos在[1,#list)范围内时，**tremove**会移动表中的元素，其时间复杂度是$O(n)$。
 
 注意，在调用**table.remove**时，如果每次都移除序列前面的元素，其效率是非常低下的，例如调用**table.remove(list,1)**将移动#list-1个元素。
 
